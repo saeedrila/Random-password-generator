@@ -17,7 +17,7 @@ import '@mui/material/Slider';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
-import { createTheme } from '@mui/material/styles';
+// import { createTheme } from '@mui/material/styles';
 
 // const theme = createTheme({
 //   palette: {
