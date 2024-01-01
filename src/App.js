@@ -45,13 +45,34 @@ function App() {
 
     let charset = "";
     let newPassword = "";
+    let newPasswordLength = passwordLength;
+    const symbols = "!@#$%^&*()";
+    const numbers = "0123456789";
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    if (useSymbols) charset += "!@#$%^&*()";
-    if (useNumbers) charset += "0123456789";
-    if (useLowerCase) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (useUpperCase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (useSymbols) {
+      charset += symbols;
+      newPasswordLength -= 1;
+      newPassword += symbols.charAt(Math.floor(Math.random() * symbols.length));
+    }
+    if (useNumbers) {
+      charset += numbers;
+      newPasswordLength -= 1;
+      newPassword += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    }
+    if (useLowerCase) {
+      charset += lowerCase;
+      newPasswordLength -= 1;
+      newPassword += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+    }
+    if (useUpperCase) {
+      charset += upperCase;
+      newPasswordLength -= 1;
+      newPassword += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+    }
 
-    for (let i = 0; i < passwordLength; i++) {
+    for (let i = 0; i < newPasswordLength; i++) {
       newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
     }
 
@@ -98,8 +119,9 @@ const handleSwitchChange = (label) => {
         alignItems: 'center',
         borderRadius: '10px',
         width: 350,
-        gap: 2, // Uniform distance between components
-        padding: 2, // Optional: Add padding for better visual appearance
+        gap: 2,
+        padding: 2,
+        backgroundColor: '#ffc37e',
       }}
     >
       {/* Title */}
